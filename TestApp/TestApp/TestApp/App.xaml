@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TestApp.App">
+    <Application.Resources>
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="#194973"/>
+            <Setter Property="BarTextColor" Value="#F2F2F2"/>
+        </Style>
+        
+        <Style TargetType="ContentView">
+            <Setter Property="BackgroundColor" Value="#F2F2F2"/>
+        </Style>
+        
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#0669BF"/>
+            <Setter Property="TextColor" Value="#F2F2F2"/>
+            <Setter Property="BorderColor" Value="#194973"/>
+        </Style>
+        
+        <Style TargetType="StackLayout" x:Key="MargenControl">
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="VerticalOptions" Value="StartAndExpand"/>
+        </Style>
+    </Application.Resources>
+</Application>

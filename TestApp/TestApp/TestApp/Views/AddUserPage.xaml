@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:TestApp.ViewModels"
+             mc:Ignorable="d"
+             xmlns:ic="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="TestApp.Views.AddUserPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar" Command="{Binding AddUserCommand}" Priority="0"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.BindingContext>
+        <viewModel:UserViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid BackgroundColor="#F2F2F2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="250" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid BackgroundColor="#194973">
+                    <!--<Image Source="bg.png" Aspect="AspectFill" />-->
+                    <StackLayout Padding="0,20,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <ic:CircleImage BorderColor="White" BorderThickness="2" Source="{Binding ImageSource}" Aspect="AspectFill">
+                            <ic:CircleImage.WidthRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="Android, iOS">180</On>
+                                </OnPlatform>
+                            </ic:CircleImage.WidthRequest>
+                            <ic:CircleImage.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="Android, iOS">180</On>
+                                </OnPlatform>
+                            </ic:CircleImage.HeightRequest>
+                            <ic:CircleImage.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding AddImageCommand}"/>
+                            </ic:CircleImage.GestureRecognizers>
+                        </ic:CircleImage>
+                    </StackLayout>
+                </Grid>
+                
+                <StackLayout Margin="20,20,20,0" Grid.Row="1" Spacing="15">
+                    <StackLayout Grid.Row="1" Style="{StaticResource MargenControl}" BackgroundColor="Transparent">
+                        <Label Text="Nombre"/>
+                        <Entry Text="{Binding Nombre}" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                </StackLayout>
+                
+                <StackLayout Margin="20,20,20,0" Grid.Row="2" Spacing="15">
+                    <StackLayout Grid.Row="1" Style="{StaticResource MargenControl}" BackgroundColor="Transparent">
+                        <Label Text="Apellido"/>
+                        <Entry Text="{Binding Apellido}" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                </StackLayout>
+                
+                <StackLayout Margin="20,20,20,0" Grid.Row="3" Spacing="15">
+                    <StackLayout Grid.Row="1" Style="{StaticResource MargenControl}" BackgroundColor="Transparent">
+                        <Label Text="Teléfono"/>
+                        <Entry Text="{Binding Telefono}" BackgroundColor="Transparent" Keyboard="Telephone"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

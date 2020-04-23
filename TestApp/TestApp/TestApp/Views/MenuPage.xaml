@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:TestApp.ViewModels"
+             mc:Ignorable="d" Title="Menu"
+             x:Class="TestApp.Views.MenuPage">
+    
+    <ContentPage.BindingContext>
+        <viewModel:MenuViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView Grid.Column="0" Grid.ColumnSpan="2" HasUnevenRows="True" BackgroundColor="Transparent"
+                          SeparatorVisibility="None" ItemsSource="{Binding ListaMenu}"
+                          Margin="0,40,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="10">
+                                
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectMenuCommand}"/>
+                                </Grid.GestureRecognizers>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                <Image Source="{Binding Icon}" Grid.Column="0" Grid.Row="0" WidthRequest="25" HeightRequest="25"/>
+                                
+                                <Label Grid.Column="1" Grid.Row="0"
+                                       FontAttributes="None"
+                                       FontSize="12"
+                                       VerticalOptions="Center"
+                                       TextColor="Black"
+                                       Text="{Binding Title}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
