@@ -33,8 +33,8 @@ namespace TestApp.ViewModels
         {
             var menu = new List<MenuModel>
             {
-                new MenuModel{ Title ="Lista de usuarios", Icon ="menuuser.png", PageName = "ListaUsuariosPage" },
-                new MenuModel{ Title ="Salir", Icon ="menulogout.png", PageName = "", MenuDetail = "Cerrar Aplicación" },
+                new MenuModel{ Title ="Lista de usuarios", Icon ="https://images.vexels.com/media/users/3/151870/isolated/preview/8b1a89d3f271913146d4cd63f3920464-icono-de-trazo-de-lista-de-comprobaci--n-m--dica-by-vexels.png", PageName = "ListaUsuariosPage" },
+                new MenuModel{ Title ="Salir", Icon ="https://toppng.com/uploads/preview/logout-11551049168o9cg0mxxib.png", PageName = "Salir", MenuDetail = "Cerrar Aplicación" },
             };
 
             listaMenu = new ObservableCollection<MenuModel>(menu.Select(m => new MenuItemViewModel { Icon = m.Icon, Title = m.Title, PageName = m.PageName }).OrderBy(o => o.Title).ToList());

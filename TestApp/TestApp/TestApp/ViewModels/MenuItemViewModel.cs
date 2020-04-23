@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TestApp.Models;
+using TestApp.Services;
 using TestApp.Views;
 using Xamarin.Forms;
 
@@ -25,7 +26,9 @@ namespace TestApp.ViewModels
                 case "ListaUsuariosPage":
                     await App.Navigator.PushAsync(new ListaUsuariosPage());
                     break;
-                case "PerfilPage":
+                case "Salir":
+                    var cerrar = DependencyService.Get<ICloseApplication>();
+                    cerrar?.closeApplication();
                     break;
                 default:
                     break;

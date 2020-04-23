@@ -13,6 +13,9 @@
     
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout HorizontalOptions="Center" Margin="0,60,0,0">
+                <Label Text="Menu" FontSize="25"/>
+            </StackLayout>
             <ListView Grid.Column="0" Grid.ColumnSpan="2" HasUnevenRows="True" BackgroundColor="Transparent"
                           SeparatorVisibility="None" ItemsSource="{Binding ListaMenu}"
                           Margin="0,40,0,0">
@@ -34,11 +37,11 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 
-                                <Image Source="{Binding Icon}" Grid.Column="0" Grid.Row="0" WidthRequest="25" HeightRequest="25"/>
+                                <Image Source="{Binding Icon}" Grid.Column="0" Grid.Row="0" WidthRequest="35" HeightRequest="35"/>
                                 
                                 <Label Grid.Column="1" Grid.Row="0"
                                        FontAttributes="None"
-                                       FontSize="12"
+                                       FontSize="16"
                                        VerticalOptions="Center"
                                        TextColor="Black"
                                        Text="{Binding Title}"/>
